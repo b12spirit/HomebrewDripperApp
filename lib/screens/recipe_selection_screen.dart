@@ -16,7 +16,7 @@ class RecipeSelectionScreen extends StatelessWidget {
             children: <Widget>[
               // Coffee Recipes Title
               Text(
-                "C o ff e e   R e c i p e s",
+                "Coffee Recipes",
                 key: Key("coffee-recipes"),
                 style: TextStyle(
                     fontFamily: "Kollektif",

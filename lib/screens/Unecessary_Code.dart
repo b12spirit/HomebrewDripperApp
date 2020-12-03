@@ -41,7 +41,7 @@ class _RecipeSelectionScreenState extends State<RecipeSelectionScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "C o ff e e  R e c i p e s",
+                  "Coffee Recipes",
                   key: Key("Coffee_title_key"),
                   style: TextStyle(
                       fontFamily: "Kollektif",
