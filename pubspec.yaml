@@ -1,6 +1,7 @@
 name: homebrew_dripper
 description: A new Flutter project.
 
+
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -23,6 +24,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_fonts: ^1.1.0
+  url_launcher: ^5.4.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -77,3 +80,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/montserrat.regular.ttf
+          weight: 300
+    - family: Norwester
+      fonts:
+        - asset: fonts/norwester.ttf
+          weight: 500
+    - family: Kollektif
+      fonts:
+        - asset: fonts/Kollektif.ttf 
+          weight: 500

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:homebrew_dripper/screens/done_screen.dart';
+import 'package:homebrew_dripper/utils/coffee_data.dart';
 
+// ignore: must_be_immutable
 class RecipeStepsScreen extends StatefulWidget {
   CoffeeRecipe recipe;
 
@@ -70,16 +72,72 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     RecipeStep currentRecipeStep = widget.recipe.steps[currentStep];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Recipe Steps"),
-      ),
+      backgroundColor: Color(0xff4C748B),
+      // appBar: AppBar(
+      //   title: Text("Recipe Steps"),
+      // ),
       body: ListView(
         children: [
-          Text("${currentRecipeStep.text}"),
-          Text("${stepTimeRemaining}"),
-          Text("Steps"),
-          for (RecipeStep step in remainingSteps)
-            ListTile(title: Text(step.text))
+          SizedBox(height: 50),
+          ListTile(
+            title: Text("$stepTimeRemaining",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: "Kollektif",
+                    fontSize: 96,
+                    color: Colors.white)),
+          ),
+          ListTile(
+            title: Text("${currentRecipeStep.text}",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: "Kollektif",
+                    fontSize: 24,
+                    color: Colors.white)),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Container(
+              height: 45,
+              child: ListTile(
+                title: Text(
+                  "S t e p s",
+                  style: TextStyle(
+                      fontFamily: "Kollektif",
+                      fontSize: 14,
+                      color: Colors.white),
+                ),
+              )),
+          for (RecipeStep step
+              in remainingSteps) // This for loop creates the steps tabs
+            Container(
+              height: 40,
+              decoration: BoxDecoration(
+                color: Color(0xff4C748B),
+                border: Border.all(
+                  color: Colors.white,
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              margin: EdgeInsets.all(5),
+              child: ListTile(
+                title: Text(
+                  step.text,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontFamily: "Kollektif",
+                      fontSize: 12,
+                      color: Colors.white),
+                ),
+                trailing: Text(toMinuteFormat(step.time),
+                    style: TextStyle(
+                        fontFamily: "Kollektif",
+                        fontSize: 12,
+                        color: Colors.white)),
+              ),
+            ),
         ],
       ),
     );
