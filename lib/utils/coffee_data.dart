@@ -10,7 +10,44 @@ CoffeeRecipe makeSweetMariasRecipe() {
     RecipeStep("Stir", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "Sweet Maria's",
+      "S w e e t   M a r i a ' s",
+      22,
+      360,
+      "finely ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+// ignore: non_constant_identifier_names
+
+CoffeeRecipe makeRecipe2Recipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 360g water", 30),
+    RecipeStep("Cover and wait", 90),
+    RecipeStep("Stir", 15),
+    RecipeStep("Cover and wait", 75),
+    RecipeStep("Stir", 15),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "R e c i p e   # 2",
+      22,
+      360,
+      "finely ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
+CoffeeRecipe makeRecipe3Recipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 360g water", 30),
+    RecipeStep("Cover and wait", 90),
+    RecipeStep("Stir", 15),
+    RecipeStep("Cover and wait", 75),
+    RecipeStep("Stir", 15),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "R e c i p e   # 3",
       22,
       360,
       "finely ground coffee",
@@ -21,14 +58,14 @@ CoffeeRecipe makeSweetMariasRecipe() {
 
 CoffeeRecipe makeTestRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 5),
-    RecipeStep("Cover and wait", 5),
-    RecipeStep("Stir", 5),
-    RecipeStep("Cover and wait", 5),
-    RecipeStep("Stir", 5),
+    RecipeStep("Add 360g water", 10),
+    RecipeStep("Cover and wait", 10),
+    RecipeStep("Stir", 10),
+    RecipeStep("Cover and wait", 10),
+    RecipeStep("Stir", 10),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "Test Recipe",
+      "T e s t   R e c i p e",
       22,
       360,
       "finely ground coffee",
@@ -38,11 +75,21 @@ CoffeeRecipe makeTestRecipe() {
 }
 
 List<CoffeeRecipe> getAllRecipes() {
-  return [makeSweetMariasRecipe(), makeTestRecipe()];
+  return [
+    makeSweetMariasRecipe(),
+    makeRecipe2Recipe(),
+    makeRecipe3Recipe(),
+    makeTestRecipe(),
+  ];
 }
 
 class CoffeeData {
   static List<CoffeeRecipe> loadRecipes() {
     return getAllRecipes();
   }
+}
+
+String toMinuteFormat(int secondsInput) {
+  int minutes = secondsInput ~/ 60;
+  return minutes.toString() + ":" + (secondsInput - minutes * 60).toString();
 }
