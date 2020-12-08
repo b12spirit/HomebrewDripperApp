@@ -30,7 +30,7 @@ CoffeeRecipe makePTsRecipe() {
     RecipeStep("Place atop mug and drain", 60),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "P T ' s",
+      "R e c i p e   # 2",
       25,
       450,
       "Medium-coarse ground coffee",
@@ -48,7 +48,7 @@ CoffeeRecipe makeTexasCoffeeSchoolRecipe() {
     RecipeStep("Place atop mug and drain", 90),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "T e x a s   C o f f e e   S c h o o l",
+      "R e c i p e   # 3",
       24,
       340,
       "Coarse ground coffee",
@@ -66,7 +66,7 @@ CoffeeRecipe makeHomeGroundsRecipe() {
     RecipeStep("Place atop mug and drain", 75),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "H o m e   G r o u n d ' s",
+      "T e s t   R e c i p e",
       23,
       360,
       "Medium-coarse ground coffee",
