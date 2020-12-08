@@ -5,6 +5,8 @@ import 'package:homebrew_dripper/utils/coffee_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RecipeSelectionScreen extends StatelessWidget {
+  //bool areWeInIntegrationTest;
+  //RecipeSelectionScreen();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class RecipeSelectionScreen extends StatelessWidget {
               // Coffee Recipes Title
               Text(
                 "Coffee Recipes",
-                key: Key("coffee-recipes"),
+                key: Key("coffee_title_key"),
                 style: TextStyle(
                     fontFamily: "Kollektif",
                     fontWeight: FontWeight.bold,
@@ -73,8 +75,11 @@ class RecipeSelectionScreen extends StatelessWidget {
 
 // ignore: must_be_immutable
 class RecipeList extends StatelessWidget {
+  //bool areWeInIntegrationTest;
+  RecipeList();
   List<CoffeeRecipe> recipes = CoffeeData.loadRecipes();
   bool divider = false;
+  int i = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -91,6 +96,18 @@ class RecipeList extends StatelessWidget {
               ListTile(
                 title: Text(
                   recipe.name,
+                  key: Key(recipe.name == "S w e e t   M a r i a ' s"
+                      ? "Sweet Maria's Key"
+                      : (recipe.name == "P T ' s"
+                          ? "PT's Key"
+                          : (recipe.name ==
+                                  "T e x a s   C o f f e e   S c h o o l"
+                              ? "Texas coffee school Key"
+                              : (recipe.name == "T e s t   R e c i p e 1"
+                                  ? "FRecipe1 Key"
+                                  : (recipe.name == "T e s t   R e c i p e 2"
+                                      ? "FRecipe2 Key"
+                                      : "null"))))),
                   style: TextStyle(
                       fontFamily: "Montserrat",
                       color: Color(0xff4C748B),
@@ -122,6 +139,7 @@ class ResourceList extends StatelessWidget {
         ListTile(
           title: Text(
             "C o f f e e",
+            key: Key("Coffee Resource"),
             style: TextStyle(
                 fontFamily: "Montserrat",
                 color: Color(0xff4C748B),
@@ -156,6 +174,7 @@ class ResourceList extends StatelessWidget {
           ),
           trailing: Icon(
             Icons.chevron_right,
+            key: Key("Grinders Resource"),
           ),
           // This creates the hyperlink for each resources tab
 
@@ -184,6 +203,7 @@ class ResourceList extends StatelessWidget {
           ),
           trailing: Icon(
             Icons.chevron_right,
+            key: Key("Kettles Resource"),
           ),
           // This creates the hyperlink for each resources tab
 
@@ -212,6 +232,7 @@ class ResourceList extends StatelessWidget {
           ),
           trailing: Icon(
             Icons.chevron_right,
+            key: Key("Dripper Resource"),
           ),
           // This creates the hyperlink for each resources tab
 
