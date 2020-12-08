@@ -119,14 +119,14 @@ void main() {
           expect(await driver.getText(step), "Add 240g water");
         });
         test('Step 2', () async {
-          await Future.delayed(const Duration(seconds: 10), () {});
+          await Future.delayed(const Duration(seconds: 11), () {});
           if (await driver.getText(time) == "1") {
           } else
             expect(await driver.getText(time), "0");
           expect(await driver.getText(step), "Cover and wait");
         });
         test('Step 3', () async {
-          await Future.delayed(const Duration(seconds: 7), () {});
+          await Future.delayed(const Duration(seconds: 6), () {});
           if (await driver.getText(time) == "1") {
           } else
             expect(await driver.getText(time), "0");
