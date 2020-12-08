@@ -1,13 +1,14 @@
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
+import 'package:homebrew_dripper/utils/gobals.dart' as globals;
 
 CoffeeRecipe makeSweetMariasRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 30),
-    RecipeStep("Cover and wait", 90),
-    RecipeStep("Stir", 15),
-    RecipeStep("Cover and wait", 75),
-    RecipeStep("Stir", 15),
+    RecipeStep("Add 360g water", 10),
+    RecipeStep("Cover and wait", 12),
+    RecipeStep("Stir", 6),
+    RecipeStep("Cover and wait", 12),
+    RecipeStep("Stir", 6),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
       "S w e e t   M a r i a ' s",
@@ -20,67 +21,111 @@ CoffeeRecipe makeSweetMariasRecipe() {
 }
 // ignore: non_constant_identifier_names
 
-CoffeeRecipe makeRecipe2Recipe() {
+CoffeeRecipe makePTsRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 30),
-    RecipeStep("Cover and wait", 90),
-    RecipeStep("Stir", 15),
-    RecipeStep("Cover and wait", 75),
-    RecipeStep("Stir", 15),
+    RecipeStep("Add 50g water and wait", 15),
+    RecipeStep("wait", 30),
+    RecipeStep("Add 400g water", 15),
+    RecipeStep("Wait", 120),
+    RecipeStep("Place atop mug and drain", 60),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "R e c i p e   # 2",
-      22,
-      360,
-      "finely ground coffee",
+      "P T ' s",
+      25,
+      450,
+      "Medium-coarse ground coffee",
       "The original recipe: makes one delicious cup",
       steps);
   return recipe;
 }
 
-CoffeeRecipe makeRecipe3Recipe() {
+CoffeeRecipe makeTexasCoffeeSchoolRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 30),
-    RecipeStep("Cover and wait", 90),
-    RecipeStep("Stir", 15),
-    RecipeStep("Cover and wait", 75),
-    RecipeStep("Stir", 15),
+    RecipeStep("Add 100g water", 30),
+    RecipeStep("Gentle Stir", 30),
+    RecipeStep("Add 240g water", 15),
+    RecipeStep("Stir then cover", 75),
+    RecipeStep("Place atop mug and drain", 90),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "R e c i p e   # 3",
-      22,
-      360,
-      "finely ground coffee",
+      "T e x a s   C o f f e e   S c h o o l",
+      24,
+      340,
+      "Coarse ground coffee",
       "The original recipe: makes one delicious cup",
       steps);
   return recipe;
 }
 
-CoffeeRecipe makeTestRecipe() {
+CoffeeRecipe makeHomeGroundsRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 10),
-    RecipeStep("Cover and wait", 10),
-    RecipeStep("Stir", 10),
-    RecipeStep("Cover and wait", 10),
-    RecipeStep("Stir", 10),
+    RecipeStep("Add 50g water and wait", 30),
+    RecipeStep("Add 310g water", 15),
+    RecipeStep("Cover and wait", 75),
+    RecipeStep("Gently stir", 30),
+    RecipeStep("Place atop mug and drain", 75),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "T e s t   R e c i p e",
-      22,
+      "H o m e   G r o u n d ' s",
+      23,
       360,
-      "finely ground coffee",
+      "Medium-coarse ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
+CoffeeRecipe makeFake1Recipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 10g water", 5),
+    RecipeStep("Add 350g water", 15),
+    RecipeStep("Cover and wait", 15),
+    RecipeStep("Gently stir", 10),
+    RecipeStep("Place atop mug and drain", 15),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "T e s t   R e c i p e 1",
+      23,
+      360,
+      "lightly-coarse ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
+CoffeeRecipe makeFake2Recipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 240g water", 5),
+    RecipeStep("Cover and wait", 10),
+    RecipeStep("Gently stir", 5),
+    RecipeStep("Place atop of mug and drain", 15),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "T e s t   R e c i p e 2",
+      25,
+      240,
+      "Finely ground coffee",
       "The original recipe: makes one delicious cup",
       steps);
   return recipe;
 }
 
 List<CoffeeRecipe> getAllRecipes() {
-  return [
-    makeSweetMariasRecipe(),
-    makeRecipe2Recipe(),
-    makeRecipe3Recipe(),
-    makeTestRecipe(),
-  ];
+  if (globals.isTesting) {
+    return [
+      makeSweetMariasRecipe(),
+      makePTsRecipe(),
+      makeFake1Recipe(),
+      makeFake2Recipe()
+    ];
+  } else {
+    return [
+      makeSweetMariasRecipe(),
+      makePTsRecipe(),
+      makeTexasCoffeeSchoolRecipe(),
+      makeHomeGroundsRecipe(),
+    ];
+  }
 }
 
 class CoffeeData {
