@@ -40,6 +40,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
       if (stepTimeRemaining < 1) {
         //increase step
         currentStep++;
+
         //if we finished
         if (currentStep >= totalSteps) {
           //cancel timer
@@ -84,17 +85,14 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                 style: TextStyle(
                     fontFamily: "Kollektif",
                     fontSize: 96,
-                    letterSpacing: 1.5,
                     color: Colors.white)),
           ),
           ListTile(
             title: Text("${currentRecipeStep.text}",
-                key: Key("Current_step"),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: "Kollektif",
                     fontSize: 24,
-                    letterSpacing: 1.5,
                     color: Colors.white)),
           ),
           SizedBox(
@@ -104,73 +102,42 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
               height: 45,
               child: ListTile(
                 title: Text(
-                  "Steps",
+                  "S t e p s",
                   style: TextStyle(
                       fontFamily: "Kollektif",
                       fontSize: 14,
-                      letterSpacing: 1.5,
                       color: Colors.white),
                 ),
               )),
-          for (RecipeStep step in remainingSteps)
-            if (step ==
-                currentRecipeStep) // This for loop creates the steps tabs
-              Container(
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
+          for (RecipeStep step
+              in remainingSteps) // This for loop creates the steps tabs
+            Container(
+              height: 40,
+              decoration: BoxDecoration(
+                color: Color(0xff4C748B),
+                border: Border.all(
+                  color: Colors.white,
+                  width: 2,
                 ),
-                margin: EdgeInsets.all(10),
-                child: ListTile(
-                  title: Text(
-                    step.text,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontFamily: "Kollektif",
-                        fontSize: 12,
-                        color: Colors.white),
-                  ),
-                  trailing: Text(toMinuteFormat(step.time),
-                      style: TextStyle(
-                          fontFamily: "Kollektif",
-                          letterSpacing: 1.5,
-                          fontSize: 12,
-                          color: Colors.white)),
-                ),
-              )
-            else
-              Container(
-                height: 45,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.transparent,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                margin: EdgeInsets.all(10),
-                child: ListTile(
-                  title: Text(
-                    step.text,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontFamily: "Kollektif",
-                        fontSize: 12,
-                        color: Colors.white),
-                  ),
-                  trailing: Text(toMinuteFormat(step.time),
-                      style: TextStyle(
-                          fontFamily: "Kollektif",
-                          letterSpacing: 1.5,
-                          fontSize: 12,
-                          color: Colors.white)),
-                ),
+                borderRadius: BorderRadius.circular(10),
               ),
+              margin: EdgeInsets.all(5),
+              child: ListTile(
+                title: Text(
+                  step.text,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontFamily: "Kollektif",
+                      fontSize: 12,
+                      color: Colors.white),
+                ),
+                trailing: Text(toMinuteFormat(step.time),
+                    style: TextStyle(
+                        fontFamily: "Kollektif",
+                        fontSize: 12,
+                        color: Colors.white)),
+              ),
+            ),
         ],
       ),
     );
