@@ -3,14 +3,14 @@ import 'package:homebrew_dripper/models/recipe_step.dart';
 
 CoffeeRecipe makeSweetMariasRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 30),
-    RecipeStep("Cover and wait", 90),
-    RecipeStep("Stir", 15),
-    RecipeStep("Cover and wait", 75),
-    RecipeStep("Stir", 15),
+    RecipeStep("Add 360g water", 5),
+    RecipeStep("Cover and wait", 12),
+    RecipeStep("Stir", 6),
+    RecipeStep("Cover and wait", 12),
+    RecipeStep("Stir", 6),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "S w e e t   M a r i a ' s",
+      "Sweet Maria's",
       22,
       360,
       "finely ground coffee",
@@ -18,57 +18,57 @@ CoffeeRecipe makeSweetMariasRecipe() {
       steps);
   return recipe;
 }
+
 // ignore: non_constant_identifier_names
-
-CoffeeRecipe makeRecipe2Recipe() {
+CoffeeRecipe makeTexasCoffeeSchoolRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 30),
-    RecipeStep("Cover and wait", 90),
-    RecipeStep("Stir", 15),
-    RecipeStep("Cover and wait", 75),
-    RecipeStep("Stir", 15),
+    RecipeStep("Add 100g of water", 6),
+    RecipeStep("Gentle Stir", 8),
+    RecipeStep("Add 240g water", 7),
+    RecipeStep("Stir then cover", 6),
+    RecipeStep("Place a top mug and drain", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "R e c i p e   # 2",
-      22,
-      360,
-      "finely ground coffee",
+      "Texas Coffee School",
+      24,
+      340,
+      "Coarse ground coffee",
       "The original recipe: makes one delicious cup",
       steps);
   return recipe;
 }
 
-CoffeeRecipe makeRecipe3Recipe() {
+CoffeeRecipe makeHomeGroundsRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 30),
-    RecipeStep("Cover and wait", 90),
-    RecipeStep("Stir", 15),
-    RecipeStep("Cover and wait", 75),
-    RecipeStep("Stir", 15),
+    RecipeStep("Add 50g water and wait", 10),
+    RecipeStep("Add 310g water", 6),
+    RecipeStep("Cover and wait", 10),
+    RecipeStep("Gently stir", 7),
+    RecipeStep("Place a top mug and drain", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "R e c i p e   # 3",
-      22,
+      "Home Grounds ",
+      23,
       360,
-      "finely ground coffee",
+      "Medium-coarse ground coffee",
       "The original recipe: makes one delicious cup",
       steps);
   return recipe;
 }
 
-CoffeeRecipe makeTestRecipe() {
+CoffeeRecipe makePTsRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 10),
-    RecipeStep("Cover and wait", 10),
-    RecipeStep("Stir", 10),
-    RecipeStep("Cover and wait", 10),
-    RecipeStep("Stir", 10),
+    RecipeStep("Add 50g water and wait", 10),
+    RecipeStep("wait", 10),
+    RecipeStep("Add 400g water", 8),
+    RecipeStep("Wait", 12),
+    RecipeStep("Place a top mug and drain", 12),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "T e s t   R e c i p e",
-      22,
-      360,
-      "finely ground coffee",
+      "PTs",
+      25,
+      450,
+      "Medium-coarse ground coffee",
       "The original recipe: makes one delicious cup",
       steps);
   return recipe;
@@ -77,9 +77,9 @@ CoffeeRecipe makeTestRecipe() {
 List<CoffeeRecipe> getAllRecipes() {
   return [
     makeSweetMariasRecipe(),
-    makeRecipe2Recipe(),
-    makeRecipe3Recipe(),
-    makeTestRecipe(),
+    makeTexasCoffeeSchoolRecipe(),
+    makeHomeGroundsRecipe(),
+    makePTsRecipe(),
   ];
 }
 
@@ -90,6 +90,26 @@ class CoffeeData {
 }
 
 String toMinuteFormat(int secondsInput) {
-  int minutes = secondsInput ~/ 60;
-  return minutes.toString() + ":" + (secondsInput - minutes * 60).toString();
+  int min = secondsInput ~/ 60;
+  String smin = min.toString();
+  String ssecond = (secondsInput - min * 60).toString();
+
+  if (min <= 9) if (secondsInput % 60 <= 9)
+    return "0" + smin + ":0" + ssecond;
+  else
+    return "0" + smin + ":" + ssecond;
+  else if (secondsInput % 60 <= 9) {
+    if (secondsInput % 60 == 0) return smin + ":00";
+
+    return smin + ":0" + ssecond;
+  } else
+    return smin + ":" + ssecond;
+}
+
+String totalTime(CoffeeRecipe recip) {
+  int totaltime = 0;
+
+  for (RecipeStep step in recip.steps) totaltime += step.time;
+
+  return toMinuteFormat(totaltime);
 }

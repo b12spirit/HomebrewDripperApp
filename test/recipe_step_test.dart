@@ -1,15 +1,21 @@
-// ignore: unused_import
-import 'package:homebrew_dripper/models/coffee_recipe.dart';
-// ignore: unused_import
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('creates a valid recipe step', () {
-    //make a recipe step
-
-    //check that it has the right data
+  test('Creates a valid recipe step', () {
+    //Creates a recipe with valid values
+    RecipeStep testMe = RecipeStep("Testing values", 10);
+    //This for the response for valid values
+    expect(testMe.text, ("Testing values"));
+    expect(testMe.time, 10);
   });
 
-  //how do we test rejecting invalid recipe steps?
+  test('This wil be the default values in case of invalid values comming in',
+      () {
+    //Creates a recipe with invalid values
+    RecipeStep testMe = RecipeStep("", -1);
+    //This for the response incase of invalid values
+    expect(testMe.text, "Sorry no instructions for this recipe!");
+    expect(testMe.time, 5);
+  });
 }

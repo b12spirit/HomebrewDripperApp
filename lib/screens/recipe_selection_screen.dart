@@ -21,6 +21,7 @@ class RecipeSelectionScreen extends StatelessWidget {
                 style: TextStyle(
                     fontFamily: "Kollektif",
                     fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
                     fontSize: 24,
                     color: Color(0xff4C748B)),
               ),
@@ -44,11 +45,12 @@ class RecipeSelectionScreen extends StatelessWidget {
               ),
               //Resources Title
               Text(
-                "R e s o u r c e s",
+                "Resources",
                 style: TextStyle(
                     fontFamily: "Kollektif",
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
+                    letterSpacing: 2,
                     color: Color(0xff4C748B)),
               ),
               SizedBox(
@@ -83,8 +85,9 @@ class RecipeList extends StatelessWidget {
           Column(
             children: [
               // This if statement avoids the extra divider at the top
-              if (recipe.name != "S w e e t   M a r i a ' s")
+              if (recipe.name != "Sweet Maria's")
                 Divider(
+                  height: 0,
                   thickness: 1,
                   color: Color(0xff4C748B),
                 ),
@@ -94,6 +97,7 @@ class RecipeList extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: "Montserrat",
                       color: Color(0xff4C748B),
+                      letterSpacing: 1.5,
                       fontSize: 14),
                 ),
                 trailing: Icon(Icons.chevron_right),
@@ -121,10 +125,11 @@ class ResourceList extends StatelessWidget {
       children: [
         ListTile(
           title: Text(
-            "C o f f e e",
+            "Coffee",
             style: TextStyle(
                 fontFamily: "Montserrat",
                 color: Color(0xff4C748B),
+                letterSpacing: 1.5,
                 fontSize: 14),
           ),
           trailing: Icon(
@@ -147,11 +152,12 @@ class ResourceList extends StatelessWidget {
         ),
         ListTile(
           title: Text(
-            "G r i n d e r s",
+            "Grinders",
             key: Key('Resource_Grinders_key'),
             style: TextStyle(
                 fontFamily: "Montserrat",
                 color: Color(0xff4C748B),
+                letterSpacing: 1.5,
                 fontSize: 14),
           ),
           trailing: Icon(
@@ -175,10 +181,11 @@ class ResourceList extends StatelessWidget {
         ),
         ListTile(
           title: Text(
-            "K e t t l e s",
+            "Kettles",
             key: Key('Resource_Kettles_key'),
             style: TextStyle(
                 fontFamily: "Montserrat",
+                letterSpacing: 1.5,
                 color: Color(0xff4C748B),
                 fontSize: 14),
           ),
@@ -203,10 +210,11 @@ class ResourceList extends StatelessWidget {
         ),
         ListTile(
           title: Text(
-            "H o m e b r e w    D r i p p e r",
+            "Homebrew Dripper",
             key: Key('Resource_Homebrew_Dripper_key'),
             style: TextStyle(
                 fontFamily: "Montserrat",
+                letterSpacing: 1.5,
                 color: Color(0xff4C748B),
                 fontSize: 14),
           ),
