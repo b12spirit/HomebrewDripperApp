@@ -42,7 +42,6 @@ class _RecipeSelectionScreenState extends State<RecipeSelectionScreen> {
               children: <Widget>[
                 Text(
                   "Coffee Recipes",
-                  key: Key("Coffee_title_key"),
                   style: TextStyle(
                       fontFamily: "Kollektif",
                       fontWeight: FontWeight.bold,
