@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'screens/recipe_selection_screen.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main({areWeInIntegrationTest = false}) =>
+    runApp(MyApp(areWeInIntegrationTest));
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  bool areWeInIntegrationTest;
+  MyApp(this.areWeInIntegrationTest);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
