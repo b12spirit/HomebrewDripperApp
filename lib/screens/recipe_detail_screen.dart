@@ -7,13 +7,9 @@ import 'package:homebrew_dripper/utils/coffee_data.dart';
 // ignore: must_be_immutable
 class RecipeDetailScreen extends StatelessWidget {
   CoffeeRecipe recipe;
-  bool areWeInIntegrationTest;
-  //RecipeStepsScreen(this.areWeInIntegrationTest, this.recipe);
 
   RecipeDetailScreen(this.recipe);
   List<RecipeStep> allsteps;
-
-  var total_time;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +19,10 @@ class RecipeDetailScreen extends StatelessWidget {
           backgroundColor: Color(0xffE5E5E5),
           elevation: 0,
           leading: IconButton(
+            key: Key("Back_btn"),
             icon: Icon(
               Icons.arrow_back_ios,
               color: Color(0xff4C748B),
-              key: Key("Back_btn"),
             ),
             onPressed: () {
               Navigator.pop(context);
@@ -111,7 +107,7 @@ class RecipeDetailScreen extends StatelessWidget {
                 color: Color(0xff4C748B),
                 child: new Text(
                   "Start",
-                  key: Key("Start_Button"),
+                  key: Key("start"),
                   style: TextStyle(
                       fontFamily: "Montserrat",
                       fontSize: 14,
@@ -141,7 +137,6 @@ class RecipeStepList extends StatelessWidget {
       children: [
         ListTile(
           title: Text(recipe.name,
-              key: Key("Recipe_title"),
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: "Kollektif",
