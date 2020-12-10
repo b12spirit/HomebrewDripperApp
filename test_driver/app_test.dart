@@ -1,4 +1,5 @@
 // Imports the Flutter Driver API.
+import 'dart:async';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 import 'package:fake_async/fake_async.dart';
