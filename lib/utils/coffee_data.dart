@@ -59,7 +59,7 @@ CoffeeRecipe makeHomeGroundsRecipe() {
 
 CoffeeRecipe makePTsRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 50g water", 10),
+    RecipeStep("Add 50g water and wait", 10),
     RecipeStep("wait", 30),
     RecipeStep("Add 400g water", 15),
     RecipeStep("Wait", 65),

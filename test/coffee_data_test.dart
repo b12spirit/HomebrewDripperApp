@@ -15,7 +15,7 @@ void main() {
     expect(recipes[0].name, "Sweet Maria's");
     expect(recipes[0].steps, isA<List<RecipeStep>>());
     expect(recipes[0].steps[0].text, "Add 360g water");
-    expect(recipes[0].steps[0].time, 5);
+    expect(recipes[0].steps[0].time, 30);
   });
   test('loadRecipes should give back the second recipe', () {
     List<CoffeeRecipe> recipes = CoffeeData.loadRecipes();
@@ -25,7 +25,7 @@ void main() {
     expect(recipes[1].name, "Texas Coffee School");
     expect(recipes[1].steps, isA<List<RecipeStep>>());
     expect(recipes[1].steps[0].text, "Add 100g of water");
-    expect(recipes[1].steps[0].time, 6);
+    expect(recipes[1].steps[0].time, 15);
   });
   test('loadRecipes should give back the third recipe', () {
     List<CoffeeRecipe> recipes = CoffeeData.loadRecipes();
