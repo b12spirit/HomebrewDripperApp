@@ -4,11 +4,11 @@ import 'package:homebrew_dripper/utils/gobals.dart' as globals;
 
 CoffeeRecipe makeSweetMariasRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 5),
-    RecipeStep("Cover and wait", 12),
-    RecipeStep("Stir", 6),
-    RecipeStep("Cover and wait", 12),
-    RecipeStep("Stir", 6),
+    RecipeStep("Add 360g water", 30),
+    RecipeStep("Cover and wait", 90),
+    RecipeStep("Stir", 15),
+    RecipeStep("Cover and wait", 75),
+    RecipeStep("Stir", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
       "Sweet Maria's",
@@ -23,11 +23,12 @@ CoffeeRecipe makeSweetMariasRecipe() {
 // ignore: non_constant_identifier_names
 CoffeeRecipe makeTexasCoffeeSchoolRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 100g of water", 6),
-    RecipeStep("Gentle Stir", 8),
-    RecipeStep("Add 240g water", 7),
-    RecipeStep("Stir then cover", 6),
-    RecipeStep("Place a top mug and drain", 15),
+    RecipeStep("Add 100g of water", 15),
+    RecipeStep("Gentle Stir and Let it bloom", 30),
+    RecipeStep("Add 240g water", 15),
+    RecipeStep("Stir then cover", 90),
+    RecipeStep("Gentle stir", 5),
+    RecipeStep("Place a top mug and drain", 90),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
       "Texas Coffee School",
@@ -42,10 +43,9 @@ CoffeeRecipe makeTexasCoffeeSchoolRecipe() {
 CoffeeRecipe makeHomeGroundsRecipe() {
   List<RecipeStep> steps = [
     RecipeStep("Add 50g water and wait", 10),
-    RecipeStep("Add 310g water", 6),
-    RecipeStep("Cover and wait", 10),
-    RecipeStep("Gently stir", 7),
-    RecipeStep("Place a top mug and drain", 15),
+    RecipeStep("Add 345g water", 15),
+    RecipeStep("Break the Crust", 95),
+    RecipeStep("Place atop mug and drain", 75),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
       "Home Grounds",
@@ -59,11 +59,11 @@ CoffeeRecipe makeHomeGroundsRecipe() {
 
 CoffeeRecipe makePTsRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 50g water and wait", 10),
-    RecipeStep("wait", 10),
-    RecipeStep("Add 400g water", 8),
-    RecipeStep("Wait", 12),
-    RecipeStep("Place a top mug and drain", 12),
+    RecipeStep("Add 50g water", 10),
+    RecipeStep("wait", 30),
+    RecipeStep("Add 400g water", 15),
+    RecipeStep("Wait", 65),
+    RecipeStep("Place a top mug and drain", 90),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
       "PTs",
