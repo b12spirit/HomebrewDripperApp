@@ -39,7 +39,7 @@ void main() {
       test('Clicking on Sweet Marias Advances to the Steps Screen', () async {
         final sweetMaria = find.byValueKey("Sweet Maria's Key");
         await driver.tap(sweetMaria);
-        await driver.waitFor(find.text("S w e e t   M a r i a ' s"));
+        await driver.waitFor(find.text("Sweet Maria's"));
       });
 
       test('Back Button Testing', () async {
@@ -61,30 +61,29 @@ void main() {
         await driver.waitFor(find.text("Coffee Recipes"));
       });
 
-      //the test will cause us to go back to selection screen
-      //it throws off the rest of the other tests
-      //would probably be better off as a base for sad paths
+      //   //the test will cause us to go back to selection screen
+      //   //it throws off the rest of the other tests
+      //   //would probably be better off as a base for sad paths
 
-      /* test('Back Button During Steps Screen', () async {
-        final sweetMaria = find.byValueKey("Sweet Maria's");
-        await driver.tap(sweetMaria);
+      //   /* test('Back Button During Steps Screen', () async {
+      //     final sweetMaria = find.byValueKey("Sweet Maria's");
+      //     await driver.tap(sweetMaria);
 
-        final startBtn = find.byValueKey('start');
-        await driver.tap(startBtn);
+      //     final startBtn = find.byValueKey('start');
+      //     await driver.tap(startBtn);
 
-        final backBtn = find.byValueKey('back_to_detail');
-        await driver.tap(backBtn);
+      //     final backBtn = find.byValueKey('back_to_detail');
+      //     await driver.tap(backBtn);
 
-        final backBtn2 = find.byValueKey('back_to_selection');
-        await driver.tap(backBtn2);
+      //     final backBtn2 = find.byValueKey('back_to_selection');
+      //     await driver.tap(backBtn2);
 
-        await driver.waitFor(find.text("Coffee Recipes"));
-      });
-    }); */
+      //     await driver.waitFor(find.text("Coffee Recipes"));
+      //   });
+      // }); */
 
       group('Timer Testing', () {
         group('Fake Recipe 1 test', () {
-          final time = find.byValueKey('current_time');
           final step = find.byValueKey('current_step');
 
           test('Step 1', () async {
@@ -93,35 +92,25 @@ void main() {
 
             final startBtn = find.byValueKey('start');
             await driver.tap(startBtn);
-            await Future.delayed(const Duration(seconds: 5), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Add 10g water");
+            await Future.delayed(const Duration(seconds: 6), () {});
           });
           test('Step 2', () async {
-            await Future.delayed(const Duration(seconds: 16), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Cover and wait");
+
+            await Future.delayed(const Duration(seconds: 16), () {});
           });
           test('Step 3', () async {
-            await Future.delayed(const Duration(seconds: 8), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Gently stir");
+
+            await Future.delayed(const Duration(seconds: 8), () {});
           });
           test('Step 4', () async {
-            await Future.delayed(const Duration(seconds: 14), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Place atop mug and drain");
+
+            await Future.delayed(const Duration(seconds: 14), () {});
           });
           test('Step 5', () async {
-            await Future.delayed(const Duration(seconds: 3), () {});
             await driver.waitFor(find.text('''enjoy your amazing 
   handmade coffee'''));
 
@@ -130,7 +119,6 @@ void main() {
           });
         });
         group('Fake Recipe 2 test', () {
-          final time = find.byValueKey('current_time');
           final step = find.byValueKey('current_step');
 
           test('Step 1', () async {
@@ -139,35 +127,24 @@ void main() {
 
             final startBtn = find.byValueKey('start');
             await driver.tap(startBtn);
-            await Future.delayed(const Duration(seconds: 5), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Add 240g water");
+
+            await Future.delayed(const Duration(seconds: 6), () {});
           });
           test('Step 2', () async {
-            await Future.delayed(const Duration(seconds: 11), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Cover and wait");
+
+            await Future.delayed(const Duration(seconds: 11), () {});
           });
           test('Step 3', () async {
-            await Future.delayed(const Duration(seconds: 6), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Gently stir");
+            await Future.delayed(const Duration(seconds: 6), () {});
           });
           test('Step 4', () async {
-            await Future.delayed(const Duration(seconds: 16), () {});
-            if (await driver.getText(time) == "1") {
-            } else
-              expect(await driver.getText(time), "0");
             expect(await driver.getText(step), "Place atop of mug and drain");
+            await Future.delayed(const Duration(seconds: 16), () {});
           });
           test('Step 5', () async {
-            await Future.delayed(const Duration(seconds: 3), () {});
             await driver.waitFor(find.text('''enjoy your amazing 
   handmade coffee'''));
             final done = find.byValueKey('Donebtn');

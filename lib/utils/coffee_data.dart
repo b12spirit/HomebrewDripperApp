@@ -11,7 +11,7 @@ CoffeeRecipe makeSweetMariasRecipe() {
     RecipeStep("Stir", 6),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "S w e e t   M a r i a ' s",
+      "Sweet Maria's",
       22,
       360,
       "finely ground coffee",
@@ -48,7 +48,7 @@ CoffeeRecipe makeHomeGroundsRecipe() {
     RecipeStep("Place a top mug and drain", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "Home Grounds ",
+      "Home Grounds",
       23,
       360,
       "Medium-coarse ground coffee",
@@ -84,7 +84,7 @@ CoffeeRecipe makeFake1Recipe() {
     RecipeStep("Place atop mug and drain", 13),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "T e s t   R e c i p e 1",
+      "Test Recipe 1",
       23,
       360,
       "lightly-coarse ground coffee",
@@ -102,7 +102,7 @@ CoffeeRecipe makeFake2Recipe() {
     RecipeStep("Place atop of mug and drain", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "T e s t   R e c i p e 2",
+      "Test Recipe 2",
       25,
       240,
       "Finely ground coffee",
