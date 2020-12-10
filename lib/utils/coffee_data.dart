@@ -48,7 +48,7 @@ CoffeeRecipe makeHomeGroundsRecipe() {
     RecipeStep("Place a top mug and drain", 15),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "Home Grounds ",
+      "Home Grounds",
       23,
       360,
       "Medium-coarse ground coffee",
