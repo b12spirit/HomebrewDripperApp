@@ -49,11 +49,17 @@ class RecipeDetailScreen extends StatelessWidget {
                   title: Text(
                     "Steps",
                     style: TextStyle(
-                        fontFamily: "Montserrat",
+                        letterSpacing: 1.5,
+                        fontFamily: "Kollektif",
                         fontSize: 14,
                         color: Color(0xff4C748B)),
                   ),
-                  trailing: Text("Total: "))),
+                  trailing: Text("Total: " + totalTime(recipe),
+                      style: TextStyle(
+                          fontFamily: "Kollektif",
+                          fontSize: 14,
+                          letterSpacing: 1.5,
+                          color: Color(0xff4C748B))))),
           for (RecipeStep step in allsteps)
             // This for loop creates the steps tabs
             Container(
@@ -72,8 +78,9 @@ class RecipeDetailScreen extends StatelessWidget {
                   step.text,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontFamily: "Montserrat",
+                      fontFamily: "Kollektif",
                       fontSize: 12,
+                      letterSpacing: 1.5,
                       color: Color(0xff4C748B)),
                 ),
                 // Used trailing to add the timer to the very right of each tab
@@ -82,8 +89,9 @@ class RecipeDetailScreen extends StatelessWidget {
                   toMinuteFormat(step
                       .time), // Had to add the utils/coffee_data.dart to acces this class
                   style: TextStyle(
-                      fontFamily: "Montserrat",
+                      fontFamily: "Kollektif",
                       fontSize: 12,
+                      letterSpacing: 1.5,
                       color: Color(0xff4C748B)),
                 ),
               ),
@@ -111,6 +119,7 @@ class RecipeDetailScreen extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: "Montserrat",
                       fontSize: 14,
+                      letterSpacing: 1.5,
                       color: Colors.white),
                 ),
                 onPressed: () {
@@ -174,41 +183,3 @@ class RecipeStepList extends StatelessWidget {
     );
   }
 }
-
-// Container(
-//     child: Text(
-//       recipe.name,
-//       style: TextStyle(
-//           fontFamily: "Kollektif",
-//           fontSize: 18,
-//           color: Color(0xff4C748B)),
-//     ),
-//     decoration: BoxDecoration(
-//       color: Color(0xffE5E5E5),
-//       border: Border.all(
-//         color: Color(0xff4C748B),
-//         width: 2.5,
-//       ),
-//       borderRadius: BorderRadius.circular(10),
-//     ),
-//   ),
-//   Text("${recipe.coffeeVolumeGrams}" + "g - finely ground coffee",
-//       style: TextStyle(
-//           fontFamily: "Kollektif",
-//           fontSize: 14,
-//           color: Color(0xff4C748B))),
-//   Text("${recipe.waterVolumeGrams}" + "g - water",
-//       style: TextStyle(
-//           fontFamily: "Kollektif",
-//           fontSize: 14,
-//           color: Color(0xff4C748B))),
-//   SizedBox(
-//     height: 15,
-//   ),
-//   Text(
-//       "T h e   o g i r i n a l   r e c i p e   m a k e s   o n e   d e l i c i o u s   c u p",
-//       style: TextStyle(
-//           fontFamily: "Monserrat",
-//           fontSize: 10,
-//           fontStyle: FontStyle.italic,
-//           color: Color(0xff4C748B))),
