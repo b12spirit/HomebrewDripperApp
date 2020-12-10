@@ -95,11 +95,18 @@ class RecipeList extends StatelessWidget {
               ListTile(
                 title: Text(
                   recipe.name,
-                  key: Key(recipe.name),
+                  key: Key(recipe.name == "Sweet Maria's"
+                      ? "Sweet Maria's Key"
+                      : (recipe.name == "PTs"
+                          ? "PT's Key"
+                          : (recipe.name == "Test Recipe 1"
+                              ? "FRecipe1 Key"
+                              : (recipe.name == "Test Recipe 2"
+                                  ? "FRecipe2 Key"
+                                  : "null")))),
                   style: TextStyle(
                       fontFamily: "Montserrat",
                       color: Color(0xff4C748B),
-                      letterSpacing: 1.5,
                       fontSize: 14),
                 ),
                 trailing: Icon(Icons.chevron_right),
