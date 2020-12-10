@@ -1,21 +1,17 @@
 class RecipeStep {
   String text;
   int time;
-  // int seconds;
 
   RecipeStep(text, time) {
-    //add any rules to reject invalid values
-    //for example, reject negative gram amounts
-    this.text = text;
-    this.time = time;
+    //If a negative amount or time is entered, 0 is defaulted to
+    // if (text < 0) text = 0;
+    if (time == null || time < 1)
+      this.time = 5;
+    else
+      this.time = time;
+    if (text == null || text == "")
+      this.text = "Sorry no instructions for this recipe!";
+    else
+      this.text = text;
   }
-  /*
-  static Future<int> getFakeTimer(bool areWeInIntegrationTest) async {
-    int seconds;
-
-    if (areWeInIntegrationTest) {
-      seconds = 5;
-    }
-    return seconds;
-  }*/
 }

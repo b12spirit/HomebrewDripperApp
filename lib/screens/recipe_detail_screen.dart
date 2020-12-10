@@ -140,6 +140,7 @@ class RecipeStepList extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: "Kollektif",
+                  letterSpacing: 1.5,
                   fontSize: 18,
                   color: Color(0xff4C748B))),
           subtitle: Divider(thickness: 1, color: Color(0xff4C748B)),
@@ -155,15 +156,16 @@ class RecipeStepList extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: "Kollektif",
+                  letterSpacing: 1.5,
                   fontSize: 14,
                   color: Color(0xff4C748B))),
         ),
         ListTile(
-          title: Text(
-              "T h e   o g i r i n a l   r e c i p e   m a k e s   o n e   d e l i c i o u s   c u p",
+          title: Text("The ogirinal recipe makes one delicious cup",
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: "Monserrat",
+                  letterSpacing: 1.5,
                   fontSize: 10,
                   fontStyle: FontStyle.italic,
                   color: Color(0xff4C748B))),

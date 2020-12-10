@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/recipe_selection_screen.dart';
+import 'package:homebrew_dripper/screens/splash_screen.dart';
 
 void main({areWeInIntegrationTest = false}) =>
     runApp(MyApp(areWeInIntegrationTest));
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: RecipeSelectionScreen(),
+      home: SplashScreen(),
     );
   }
 }
