@@ -4,8 +4,6 @@ import 'package:homebrew_dripper/screens/recipe_selection_screen.dart';
 
 // ignore: must_be_immutable
 class DoneScreen extends StatelessWidget {
-  bool areWeInIntegrationTest;
-  DoneScreen(this.areWeInIntegrationTest);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

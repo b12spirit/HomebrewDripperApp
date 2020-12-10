@@ -9,8 +9,7 @@ import 'package:homebrew_dripper/utils/coffee_data.dart';
 // ignore: must_be_immutable
 class RecipeStepsScreen extends StatefulWidget {
   CoffeeRecipe recipe;
-  bool areWeInIntegrationTest;
-  //bool areWeInIntegrationTest;
+
   RecipeStepsScreen(this.recipe);
 
   // RecipeStepsScreen(this.recipe);
@@ -35,11 +34,8 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     remainingSteps = widget.recipe.steps;
 
     //set the starting value of the timer
-    if (widget.areWeInIntegrationTest == true) {
-      stepTimeRemaining = 4;
-    } else {
-      stepTimeRemaining = widget.recipe.steps[currentStep].time;
-    }
+
+    stepTimeRemaining = widget.recipe.steps[currentStep].time;
 
     //make timer that ticks every one seconds
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -56,23 +52,15 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
           //navigate to done screen
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    DoneScreen(widget.areWeInIntegrationTest)),
+            MaterialPageRoute(builder: (context) => DoneScreen()),
           );
         } else {
           //if we did not finish yet
           //adjust the timer
           //reduce the list of remaining steps
-          if (widget.areWeInIntegrationTest == true) {
-            stepTimeRemaining = 4;
-            remainingSteps = widget.recipe.steps.sublist(currentStep);
-            setState(() {});
-          } else {
-            stepTimeRemaining = widget.recipe.steps[currentStep].time;
-            remainingSteps = widget.recipe.steps.sublist(currentStep);
-            setState(() {});
-          }
+          stepTimeRemaining = widget.recipe.steps[currentStep].time;
+          remainingSteps = widget.recipe.steps.sublist(currentStep);
+          setState(() {});
         }
       } else {
         //adjust time remaining by one
@@ -96,7 +84,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
           SizedBox(height: 50),
           ListTile(
             title: Text("$stepTimeRemaining",
-                key: Key("Current_time"),
+                key: Key("current_time"),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: "Kollektif",
@@ -105,7 +93,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
           ),
           ListTile(
             title: Text("${currentRecipeStep.text}",
-                key: Key("Current_step"),
+                key: Key("current_step"),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: "Kollektif",
@@ -120,7 +108,6 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
               child: ListTile(
                 title: Text(
                   "S t e p s",
-                  key: Key("Steps_list"),
                   style: TextStyle(
                       fontFamily: "Kollektif",
                       fontSize: 14,
